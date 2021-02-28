@@ -5,6 +5,8 @@
 }
 
 .countrylooker {
+  width: 300px;
+  height: 60px;
   margin: 16px;
   padding: 16px;
   box-sizing: border-box;

@@ -21,10 +21,11 @@
 }
 
 .container {
+  width: 100%;
   display: grid;
   padding-top: 10px;
   margin-left: 16px;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
   align-items: center;
 }
@@ -36,5 +37,5 @@
   background: #1c2633;
   box-shadow: 0 3px 15px rgb(0 0 0 / 20%);
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 24px;
 }
