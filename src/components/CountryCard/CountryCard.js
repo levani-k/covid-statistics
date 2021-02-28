@@ -7,7 +7,7 @@ const CountryCard = ({ country }) => {
     const displayDateTime = dateTime.toLocaleString("en-GB");
     return(
         <div className='countryCard'>
-            <h3>{country.country}</h3>
+            <h1 style={{"marginLeft": "16px"}}>{country.country}</h1>
             <div className='cardLittleInfo'>
                 <img className='countryImg' src={country.countryInfo.flag} alt=''/>
                 <div className='smallInfo'>

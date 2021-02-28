@@ -6,7 +6,7 @@ import './EveryCountry.css'
 const EveryCountry = ({ countriesArray, handleClick, onSearchChange, inputOnClick }) => {
     return(
         <div className='everyPerson'>
-            <input className='countrylooker' id='countryName' type='search'  placeholder='search user' onChange={onSearchChange} onClick={inputOnClick} />
+            <div className='searchCountryField'><input className='countrylooker' id='countryName' type='search'  placeholder='search country by name' onChange={onSearchChange} onClick={inputOnClick} /></div>
             <table className='countriesTable'> 
                 <thead>
                     <tr className='headers'>

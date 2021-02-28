@@ -9,8 +9,7 @@ class App extends React.Component{
     this.state = {
       countriesArray: [],
       country: [],
-      searchfield: '',
-      isCountryDisplayed: false
+      searchfield: ''
     }
   }
 
@@ -28,17 +27,17 @@ class App extends React.Component{
   }
 
   componentDidMount() {
+    const randomNum = Math.floor(Math.random() * 221)
     fetch('https://disease.sh/v3/covid-19/countries')
     .then(response => response.json())
-    .then(data => this.setState({ countriesArray: data }))
+    .then(data => this.setState({ countriesArray: data, country: data[randomNum] }))
   }
 
   handleClick = (event) => {
     for(var index = 0; index < this.state.countriesArray.length; index++) {
       if(event.target.innerHTML === this.state.countriesArray[index].country) {
         this.setState({
-          country: this.state.countriesArray[index],
-          isCountryDisplayed: true
+          country: this.state.countriesArray[index]
         })
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }
@@ -53,8 +52,7 @@ class App extends React.Component{
         let country = this.filterCountries()
         if(country.length === 1) {
           this.setState({ 
-            country: country[0],
-            isCountryDisplayed: true
+            country: country[0]
           })
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }
@@ -66,9 +64,15 @@ class App extends React.Component{
     return (
       <div className='wholeContent'>
         {
-          this.state.isCountryDisplayed ? <CountryCard country={this.state.country}/> : <h3>Click on the specific country name to view all the details about the country.</h3>
+          this.state.country.length !== 0
+          ? <CountryCard country={this.state.country}/> 
+          : <h3>Loading country info</h3>
         }
-        <EveryCountry countriesArray={this.filterCountries()} handleClick={this.handleClick} onSearchChange={this.onSearchChange} inputOnClick={this.inputOnClick}/>
+        {
+          this.state.countriesArray.length > 0 
+          ? <EveryCountry countriesArray={this.filterCountries()} handleClick={this.handleClick} onSearchChange={this.onSearchChange} inputOnClick={this.inputOnClick}/> 
+          : <h3>Loading countries info</h3>
+        }
       </div>
     );
   }

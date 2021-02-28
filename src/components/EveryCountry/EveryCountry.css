@@ -1,4 +1,5 @@
-.everyPerson {
+.searchCountryField {
+  display: grid;
   justify-content: center;
   align-items: center;
 }
@@ -49,12 +50,6 @@ tr:nth-child(odd) {
 
 .countryName {
   cursor: pointer;
-}
-
-.countryFlag {
-  width: 20px;
-  height: auto;
-  margin-right: 5px;
 }
 
 .deaths {
