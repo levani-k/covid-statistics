@@ -40,6 +40,7 @@ class App extends React.Component{
           country: this.state.countriesArray[index],
           isCountryDisplayed: true
         })
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }
     }
   }
@@ -52,9 +53,10 @@ class App extends React.Component{
         let country = this.filterCountries()
         if(country.length === 1) {
           this.setState({ 
-              country: country[0],
-              isCountryDisplayed: true
-             })
+            country: country[0],
+            isCountryDisplayed: true
+          })
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }
       }
     });
