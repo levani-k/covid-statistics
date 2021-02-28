@@ -3,6 +3,8 @@ import './CountryCard.css'
 
 
 const CountryCard = ({ country }) => {
+    const dateTime = new Date(country.updated);
+    const displayDateTime = dateTime.toLocaleString("en-GB");
     return(
         <div className='countryCard'>
             <h3>{country.country}</h3>
@@ -11,6 +13,7 @@ const CountryCard = ({ country }) => {
                 <div className='smallInfo'>
                     <p>Continent: {country.continent}</p>
                     <p>Population: {country.population}</p>
+                    <p>Updated at {displayDateTime}</p>
                 </div>
             </div>
             <div className='container'>
