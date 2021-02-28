@@ -3,10 +3,10 @@ import './EveryCountry.css'
 
 // <img className='countryFlag' src={country.countryInfo.flag} alt='' /> 
 
-const EveryCountry = ({ countriesArray, handleClick, onSearchChange }) => {
+const EveryCountry = ({ countriesArray, handleClick, onSearchChange, inputOnClick }) => {
     return(
         <div className='everyPerson'>
-            <input className='countrylooker' type='search'  placeholder='search user' onChange={onSearchChange} />
+            <input className='countrylooker' id='countryName' type='search'  placeholder='search user' onChange={onSearchChange} onClick={inputOnClick} />
             <table className='countriesTable'> 
                 <thead>
                     <tr className='headers'>

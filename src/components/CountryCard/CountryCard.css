@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid grey;
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .countryImg {
@@ -27,5 +27,5 @@
   background: #1c2633;
   box-shadow: 0 3px 15px rgb(0 0 0 / 20%);
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 16px;
 }

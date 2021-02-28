@@ -14,6 +14,15 @@ class App extends React.Component{
     }
   }
 
+  filterCountries = () => {
+    const { countriesArray, searchfield} = this.state
+    const filteredCountries = countriesArray.filter(country =>{
+      return country.country.toLowerCase().includes(searchfield.toLowerCase())
+    })
+
+    return filteredCountries
+  }
+
   onSearchChange = (event) => {
     this.setState({ searchfield: event.target.value})
   }
@@ -35,17 +44,37 @@ class App extends React.Component{
     }
   }
 
+
+  inputOnClick = (event) => {
+    let input = document.getElementById("countryName");
+    input.addEventListener("keyup", event => {
+      if (event.key === "Enter") {
+        let country = this.filterCountries()
+        if(country.length === 1) {
+          this.setState({ 
+              country: country[0],
+              isCountryDisplayed: true
+             })
+        }
+        for(var index = 0; index < this.state.countriesArray.length; index++) {
+          if(this.state.searchfield.toLocaleLowerCase() === this.state.countriesArray[index].country.toLocaleLowerCase()) {
+            this.setState({ 
+              country: this.state.countriesArray[index],
+              isCountryDisplayed: true
+             })
+          }
+        }
+      }
+    });
+  }
+
   render() {
-    const { countriesArray, searchfield} = this.state
-    const filteredCountries = countriesArray.filter(country =>{
-      return country.country.toLowerCase().includes(searchfield.toLowerCase())
-    })
     return (
       <div className='wholeContent'>
         {
           this.state.isCountryDisplayed ? <CountryCard country={this.state.country}/> : <h6>Click on the specific country name to view all the details about the country.</h6>
         }
-        <EveryCountry countriesArray={filteredCountries} handleClick={this.handleClick} onSearchChange={this.onSearchChange}/>
+        <EveryCountry countriesArray={this.filterCountries()} handleClick={this.handleClick} onSearchChange={this.onSearchChange} inputOnClick={this.inputOnClick}/>
       </div>
     );
   }
