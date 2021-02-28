@@ -56,14 +56,6 @@ class App extends React.Component{
               isCountryDisplayed: true
              })
         }
-        for(var index = 0; index < this.state.countriesArray.length; index++) {
-          if(this.state.searchfield.toLocaleLowerCase() === this.state.countriesArray[index].country.toLocaleLowerCase()) {
-            this.setState({ 
-              country: this.state.countriesArray[index],
-              isCountryDisplayed: true
-             })
-          }
-        }
       }
     });
   }
@@ -72,7 +64,7 @@ class App extends React.Component{
     return (
       <div className='wholeContent'>
         {
-          this.state.isCountryDisplayed ? <CountryCard country={this.state.country}/> : <h6>Click on the specific country name to view all the details about the country.</h6>
+          this.state.isCountryDisplayed ? <CountryCard country={this.state.country}/> : <h3>Click on the specific country name to view all the details about the country.</h3>
         }
         <EveryCountry countriesArray={this.filterCountries()} handleClick={this.handleClick} onSearchChange={this.onSearchChange} inputOnClick={this.inputOnClick}/>
       </div>
