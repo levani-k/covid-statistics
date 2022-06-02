@@ -41,12 +41,13 @@
 
 .container {
   width: 100%;
+  max-width: 100%;
   display: grid;
   padding-top: 10px;
-  margin-left: 16px;
+  /* margin-left: 16px; */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
-  align-items: center;
+  align-content: center;
 }
 
 @media (max-width: 768px) {
@@ -57,7 +58,7 @@
 
 .infoBox {
   font-family: "Barlow Condensed", sans-serif;
-  margin: 0 20px 20px 0;
+  margin: 10px;
   padding: 20px;
   background: #1c2633;
   box-shadow: 0 3px 15px rgb(0 0 0 / 20%);
